@@ -1,16 +1,19 @@
 import AllBook from '@/components/AllBook' ;
-import Cookie from 'js-cookie';
+import  getMe  from '@/lib/getMe' ;
+import { isMee } from '../../../interface';
+import Card from '@/components/Card';
 
-export default function Home  () {
-  const session = Cookie.get('jwt');
-  console.log(session)
+export default async function Home  () {
+  const isMe : isMee =await  getMe() ;
+  
   return (
     
     <div>
-        <div className='uppercase text-3xl'>
-          
-        </div>
-        <AllBook/>
+      {
+        isMe.role == "admin" ? 
+          <AllBook/>:<Card/>
+      }
+        
     </div>
   )
 };

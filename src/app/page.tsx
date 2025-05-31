@@ -16,6 +16,10 @@ export default function isForm  () {
       return err
     }
   }
+
+  const handleSignUp = async()=> {
+      router.push("/regis")
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
       <div className="max-w-sm bg-gray-800 rounded-xl shadow-md p-8 text-gray-100 w-96">
@@ -56,7 +60,7 @@ export default function isForm  () {
           <div className="flex-grow bg-gray-700 h-px"></div>
         </div>
 
-        <p className="text-xs text-center text-gray-400 mt-4">Don't have an account? <a href="#" className="text-gray-100 hover:underline hover:text-purple-400">Sign up</a></p>
+        <p className="text-xs text-center text-gray-400 mt-4">Don't have an account? <a href="/regis" className="text-gray-100 hover:underline hover:text-purple-400">Sign up</a></p>
       </div>
     </div>
   );

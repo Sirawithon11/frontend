@@ -1,17 +1,18 @@
-import { loginSchema } from "../../interface";
-export default async function login(user: string , password : string) {
+import { signUpSchema } from "../../interface";
+export default async function signUpApi(isUser: string , isPassword : string , isRole : string) {
 
-    let login : loginSchema= {
-        email :   user ,
-        password : password
+    let signUp : signUpSchema= {
+        email :   isUser ,
+        password : isPassword ,
+        role : isRole
     }
     try {
-        const response = await fetch(`http://localhost:8080/api/auth/login`, {
+        const response = await fetch(`http://localhost:8080/api/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(login),
+            body: JSON.stringify(signUp),
             credentials: 'include', // เพื่อให้ cookie ติดไปด้วยจาก backend
         });
 
