@@ -6,7 +6,7 @@ export default async function login(user: string , password : string) {
         password : password
     }
     try {
-        const response = await fetch(`http://localhost:8080/api/auth/login`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL_Backend}/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

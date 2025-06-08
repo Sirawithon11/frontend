@@ -1,7 +1,7 @@
 import { isMee } from "../../interface";
 
 export default async function getMe() {
-    const response = await fetch('http://localhost:8080/api/auth/me', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL_Backend}/api/auth/me`, {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include'

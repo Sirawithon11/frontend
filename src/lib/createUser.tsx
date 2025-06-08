@@ -7,7 +7,7 @@ export default async function signUpApi(isUser: string , isPassword : string , i
         role : isRole
     }
     try {
-        const response = await fetch(`http://localhost:8080/api/auth/register`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL_Backend}/api/auth/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -15,11 +15,6 @@ export default async function signUpApi(isUser: string , isPassword : string , i
             body: JSON.stringify(signUp),
             credentials: 'include', // เพื่อให้ cookie ติดไปด้วยจาก backend
         });
-
-        if (!response.ok) {
-            const errorText = await response.text();
-            throw new Error(`API Error: ${errorText}`);
-        }
         // console.log("isSuccesfully")
         const data = await response.json();
         return data; // Return the booking data
