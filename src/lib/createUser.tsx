@@ -15,6 +15,7 @@ export default async function signUpApi(isUser: string , isPassword : string , i
             body: JSON.stringify(signUp),
             credentials: 'include', // เพื่อให้ cookie ติดไปด้วยจาก backend
         });
+
         // console.log("isSuccesfully")
         const data = await response.json();
         return data; // Return the booking data
